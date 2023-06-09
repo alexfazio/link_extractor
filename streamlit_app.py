@@ -25,32 +25,37 @@ st.set_page_config(layout="centered", page_title="TEST 3", page_icon=":link:")
 # LAYING OUT THE TOP SECTION OF THE APP
 row1_1, row1_2 = st.columns((2, 3))
 
-with row1_1:
+with col1:
     st.title("🔗 Link Extractor V0.0")
 
-# APP
-url = st.text_input('Enter page URL:', 'https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models')
-extension = st.text_input('Enter file extension, e.g. .pdf', '.pth')
+    # APP
+    url = st.text_input('Enter page URL:', 'https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models')
+    extension = st.text_input('Enter file extension, e.g. .pdf', '.pth')
 
-submit = st.button('Process')
+    submit = st.button('Process')
 
-if submit:
+    if submit:
 
-    st.write('URL:', url)
-    st.write('Extension:', extension)
-    st.write('---')
+        st.write('URL:', url)
+        st.write('Extension:', extension)
+        st.write('---')
 
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "html.parser")
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, "html.parser")
 
-    links = soup.find_all("a", href=True)
+        links = soup.find_all("a", href=True)
 
-    for link in links:
-        href = link["href"]
-        if href.endswith(extension):
-            absolute_url: str = urljoin(url, href)
-            st.write(absolute_url)
-            #st.code(absolute_url, language="python", line_numbers=False)
+        for link in links:
+            href = link["href"]
+            if href.endswith(extension):
+                absolute_url: str = urljoin(url, href)
+                st.write(absolute_url)
+                #st.code(absolute_url, language="python", line_numbers=False)
 
-
-
+with col2:
+    option = st.selectbox(
+        "What would you like to do?",
+        ("Extract", "Nothing"),
+        label_visibility=st.session_state.visibility,
+        disabled=st.session_state.disabled,
+    )
