@@ -49,9 +49,8 @@ if submit:
         href = link["href"]
         if href.endswith(extension):
             absolute_url: str = urljoin(url, href)
-            st.write(absolute_url)
-            #st.text_input(absolute_url)
-            #st.text_area(absolute_url)
+            #st.write(absolute_url)
+            st.code(absolute_url, language="python", line_numbers=False)
 
 
 
