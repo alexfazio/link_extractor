@@ -61,7 +61,7 @@ with col1:
 with col2:
     option = st.selectbox(
         "What would you like to do?",
-        ("Extract", "Nothing"),
+        ("Extract", "Generate UNIX Script for Download"),
     )
 
 
