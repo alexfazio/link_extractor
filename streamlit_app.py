@@ -51,7 +51,7 @@ if submit:
             # st.write(absolute_url)
             #st.text_input(absolute_url)
             #st.text_area(absolute_url)
-            urls += (absolute_url+"\r")
+            urls += (absolute_url+"\n")
 
     st.text_area(urls)
 
