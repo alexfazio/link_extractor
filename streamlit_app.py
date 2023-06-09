@@ -31,4 +31,3 @@ row1_1, row1_2 = st.columns((2, 3))
 
 with row1_1:
     st.title("TEST NYC Uber Ridesharing Data")
-    )
