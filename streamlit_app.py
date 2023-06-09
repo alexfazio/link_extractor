@@ -36,10 +36,12 @@ with row1_1:
     st.title("Link Extractor V0")
 
 # APP
-name = st.text_input('Enter your name:', 'John Doe')
-st.write('Your name is', name)
+url = st.text_input('Enter page URL:', 'John Doe')
+extension = st.text_input('Enter file extension, e.g. .pdf', 'John Doe')
 
-url = "https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models"  # Replace with the target webpage URL
+st.write('URL:', url)
+st.write('Extension:', extension)
+
 response = requests.get(url)
 soup = BeautifulSoup(response.text, "html.parser")
 
@@ -47,7 +49,9 @@ links = soup.find_all("a", href=True)
 
 for link in links:
     href = link["href"]
-    if href.endswith(".pth"):
+    if href.endswith(extension):
         absolute_url = urljoin(url, href)
         print(absolute_url)
+
+st.write(absolute_url)
 
