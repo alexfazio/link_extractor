@@ -26,9 +26,6 @@ import streamlit as st
 # SETTING PAGE CONFIG TO WIDE MODE AND ADDING A TITLE AND FAVICON
 st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":taxi:")
 
-# STREAMLIT APP LAYOUT
-data = load_data()
-
 # LAYING OUT THE TOP SECTION OF THE APP
 row1_1, row1_2 = st.columns((2, 3))
 
