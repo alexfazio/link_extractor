@@ -26,7 +26,7 @@ st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":taxi:")
 row1_1, row1_2 = st.columns((2, 3))
 
 with row1_1:
-    st.title("Link Extractor V0.0")
+    st.title("🔗 Link Extractor V0.0")
 
 # APP
 url = st.text_input('Enter page URL:', 'https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models')
@@ -38,6 +38,7 @@ if submit:
 
     st.write('URL:', url)
     st.write('Extension:', extension)
+    st.write('---')
 
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
