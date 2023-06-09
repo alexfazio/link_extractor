@@ -47,4 +47,3 @@ for link in links:
         print(absolute_url)
 
 st.write(absolute_url)
-
