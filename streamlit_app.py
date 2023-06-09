@@ -25,10 +25,16 @@ st.set_page_config(layout="centered", page_title="TEST 3", page_icon=":link:")
 # LAYING OUT THE TOP SECTION OF THE APP
 row1_1, row1_2 = st.columns((2, 3))
 
-with col1:
+with row1_1:
     st.title("🔗 Link Extractor V0.0")
 
-    # APP
+# LAYING OUT THE MIDDLE SECTION OF THE APP
+col1, col2 = st.columns(2)
+
+
+# APP
+with col1:
+
     url = st.text_input('Enter page URL:', 'https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models')
     extension = st.text_input('Enter file extension, e.g. .pdf', '.pth')
 
@@ -54,8 +60,12 @@ with col1:
 
 with col2:
     option = st.selectbox(
-        "What would you like to do?",
-        ("Extract", "Nothing"),
+        "How would you like to be contacted?",
+        ("Email", "Home phone", "Mobile phone"),
         label_visibility=st.session_state.visibility,
         disabled=st.session_state.disabled,
     )
+
+
+
+
