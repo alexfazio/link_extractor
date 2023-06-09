@@ -53,7 +53,7 @@ if submit:
             #st.text_area(absolute_url)
             urls += (absolute_url+"\n")
 
-    st.text_area(urls)
+    st.text_area(label ="",value=urls, height =100)
 
 
 
