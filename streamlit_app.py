@@ -45,5 +45,6 @@ for link in links:
     if href.endswith(extension):
         absolute_url: str = urljoin(url, href)
         st.write(absolute_url)
+        st.text_input(absolute_url)
 
 
