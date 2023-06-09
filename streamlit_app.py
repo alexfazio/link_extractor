@@ -20,7 +20,7 @@ import streamlit as st
 from bs4 import BeautifulSoup
 
 # SETTING PAGE CONFIG TO WIDE MODE AND ADDING A TITLE AND FAVICON
-st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":taxi:")
+st.set_page_config(layout="centered", page_title="TEST 3", page_icon=":link:")
 
 # LAYING OUT THE TOP SECTION OF THE APP
 row1_1, row1_2 = st.columns((2, 3))
