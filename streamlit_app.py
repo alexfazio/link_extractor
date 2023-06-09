@@ -43,7 +43,6 @@ links = soup.find_all("a", href=True)
 for link in links:
     href = link["href"]
     if href.endswith(extension):
-        absolute_url = urljoin(url, href)
-        print(absolute_url)
+        absolute_url: str = urljoin(url, href)
 
 st.write(absolute_url)
