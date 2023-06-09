@@ -13,18 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""An example of showing geographic data."""
-
-import os
-
-import altair as alt
-import numpy as np
-import pandas as pd
-import pydeck as pdk
-import streamlit as st
-import requests
-from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+
+import requests
+import streamlit as st
+from bs4 import BeautifulSoup
 
 # SETTING PAGE CONFIG TO WIDE MODE AND ADDING A TITLE AND FAVICON
 st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":taxi:")
