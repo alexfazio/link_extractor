@@ -28,9 +28,3 @@ st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":taxi:")
 
 # LAYING OUT THE TOP SECTION OF THE APP
 row1_1, row1_2 = st.columns((2, 3))
-
-with row1_1:
-    st.title("TEST NYC Uber Ridesharing Data")
-    hour_selected = st.slider(
-        "Select hour of pickup", 0, 23, key="pickup_hour", on_change=update_query_params
-    )
