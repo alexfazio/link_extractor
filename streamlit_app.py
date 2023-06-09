@@ -29,8 +29,8 @@ with row1_1:
     st.title("Link Extractor V0.0")
 
 # APP
-url = st.text_input('Enter page URL:', 'John Doe')
-extension = st.text_input('Enter file extension, e.g. .pdf', 'John Doe')
+url = st.text_input('Enter page URL:', 'https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models')
+extension = st.text_input('Enter file extension, e.g. .pdf', '.pth')
 
 st.write('URL:', url)
 st.write('Extension:', extension)
