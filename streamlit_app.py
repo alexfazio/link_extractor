@@ -32,19 +32,23 @@ with row1_1:
 url = st.text_input('Enter page URL:', 'https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models')
 extension = st.text_input('Enter file extension, e.g. .pdf', '.pth')
 
-st.write('URL:', url)
-st.write('Extension:', extension)
+submit = st.button('Process')
 
-response = requests.get(url)
-soup = BeautifulSoup(response.text, "html.parser")
+if submit:
 
-links = soup.find_all("a", href=True)
+    st.write('URL:', url)
+    st.write('Extension:', extension)
 
-for link in links:
-    href = link["href"]
-    if href.endswith(extension):
-        absolute_url: str = urljoin(url, href)
-        # st.write(absolute_url)
-        st.text_input(absolute_url)
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    links = soup.find_all("a", href=True)
+
+    for link in links:
+        href = link["href"]
+        if href.endswith(extension):
+            absolute_url: str = urljoin(url, href)
+            # st.write(absolute_url)
+            st.text_input(absolute_url)
 
 
