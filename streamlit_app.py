@@ -26,7 +26,7 @@ st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":taxi:")
 row1_1, row1_2 = st.columns((2, 3))
 
 with row1_1:
-    st.title("Link Extractor V0")
+    st.title("Link Extractor V0.0")
 
 # APP
 url = st.text_input('Enter page URL:', 'John Doe')
