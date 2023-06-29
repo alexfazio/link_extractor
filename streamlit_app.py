@@ -63,7 +63,7 @@ with col1:
             href = link["href"]
             if href.endswith(extension):
                 absolute_url: str = urljoin(url, href)
-                if extras == wget:
+                if extras == "wget":
                     code += ("wget" + " " + absolute_url + "\n")
                 else:
                     code += (absolute_url + "\n")
