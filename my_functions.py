@@ -2,7 +2,7 @@
 import requests
 import streamlit as st
 from bs4 import BeautifulSoup
-
+from urllib.parse import urljoin
 
 def simple_link_extractor(url, extension, extras):
     response = requests.get(url)
