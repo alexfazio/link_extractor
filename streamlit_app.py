@@ -14,12 +14,14 @@
 # limitations under the License.
 
 
+import re
 import requests
 import streamlit as st
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from my_functions import simple_link_extractor
 from my_functions import wget
+from my_functions import rm
 
 # SETTING PAGE CONFIG TO WIDE MODE AND ADDING A TITLE AND FAVICON
 st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":link:")
@@ -41,7 +43,7 @@ with col1:
     extension = st.text_input('Filter by file extension, e.g. .pdf', '.pth')
     extras = st.selectbox(
         "Extras",
-        ("", "wget", "rm"),
+        ("None", "wget", "rm"),
     )
 
     submit = st.button('Process')
@@ -53,8 +55,11 @@ with col1:
         st.write('Extras:', extras)
         st.write('---')
 
-        if extras == "":
-            simple_link_extractor(url, extension, extras)
+        if extras == "None":
+            simple_link_extractor(url, extension)
 
         if extras == "wget":
             wget(url, extension)
+
+        if extras == "rm":
+            rm(url, extension)
