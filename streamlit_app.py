@@ -51,6 +51,8 @@ with col1:
 
         links = soup.find_all("a", href=True)
 
+        code = ""
+
         for link in links:
             href = link["href"]
             if href.endswith(extension):
