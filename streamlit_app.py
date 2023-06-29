@@ -65,7 +65,7 @@ with col1:
 with col2:
     option = st.selectbox(
         "Extras",
-        ("wget"),
+        ("","wget"),
     )
 
 
