@@ -1,5 +1,6 @@
 
 import re
+import os
 import requests
 import streamlit as st
 from bs4 import BeautifulSoup
@@ -57,10 +58,9 @@ def rm(url, extension):
         if href.endswith(extension):
             absolute_url: str = urljoin(url, href)
             # Extract filename from path
-            filename = os.path.basename(absolute_url.path)
+            filename =  os.path.basename(absolute_url.path)
             # Create UNIX command
             unix_command = f'rm {filename}'
-            return unix_command
             code += ("rm" + " " + unix_command + "\n")
     st.code(code, language='python')
     # st.write(absolute_url)
