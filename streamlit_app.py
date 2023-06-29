@@ -19,6 +19,7 @@ import streamlit as st
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from my_functions import simple_link_extractor
+from my_functions import wget
 
 # SETTING PAGE CONFIG TO WIDE MODE AND ADDING A TITLE AND FAVICON
 st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":link:")
@@ -54,3 +55,6 @@ with col1:
 
         if extras == "":
             simple_link_extractor(url, extension, extras)
+
+        if extras == "wget":
+            wget(url, extension)
