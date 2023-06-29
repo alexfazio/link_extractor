@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
 
-def simple_link_extractor(url, extension, extras):
+def simple_link_extractor(url, extension):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
