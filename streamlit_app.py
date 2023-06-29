@@ -35,8 +35,8 @@ col1, col2 = st.columns(2)
 # APP
 with col1:
 
-    url = st.text_input('Enter page URL:', 'https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models')
-    extension = st.text_input('Enter file extension, e.g. .pdf', '.pth')
+    url = st.text_input('URL:', 'https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models')
+    extension = st.text_input('Filter by file extension, e.g. .pdf', '.pth')
 
     submit = st.button('Process')
 
