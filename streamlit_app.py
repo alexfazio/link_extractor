@@ -46,6 +46,11 @@ with col1:
         st.write('Extension:', extension)
         st.write('---')
 
+        option = st.selectbox(
+            "Extras",
+            ("", "wget"),
+        )
+
         response = requests.get(url)
         soup = BeautifulSoup(response.text, "html.parser")
 
@@ -61,13 +66,3 @@ with col1:
         st.code(code, language='python')
                 #st.write(absolute_url)
                 #st.code(absolute_url, language="python", line_numbers=False)
-
-with col2:
-    option = st.selectbox(
-        "Extras",
-        ("","wget"),
-    )
-
-
-
-
