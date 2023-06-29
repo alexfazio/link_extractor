@@ -37,7 +37,7 @@ with col1:
 
     url = st.text_input('URL:', 'https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models')
     extension = st.text_input('Filter by file extension, e.g. .pdf', '.pth')
-    option = st.selectbox(
+    extras = st.selectbox(
         "Extras",
         ("", "wget"),
     )
@@ -48,10 +48,12 @@ with col1:
 
         st.write('URL:', url)
         st.write('Extension:', extension)
+        st.write('Extras:', extras)
         st.write('---')
 
         response = requests.get(url)
         soup = BeautifulSoup(response.text, "html.parser")
+
 
         links = soup.find_all("a", href=True)
 
@@ -61,7 +63,10 @@ with col1:
             href = link["href"]
             if href.endswith(extension):
                 absolute_url: str = urljoin(url, href)
-                code += (absolute_url + "\n")
+                if extras != wget:
+                    code += (absolute_url + "\n")
+                else:
+                    code += ("wget" + " " + absolute_url + "\n")
         st.code(code, language='python')
                 #st.write(absolute_url)
                 #st.code(absolute_url, language="python", line_numbers=False)
