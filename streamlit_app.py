@@ -55,13 +55,14 @@ with col1:
             href = link["href"]
             if href.endswith(extension):
                 absolute_url: str = urljoin(url, href)
-                st.write(absolute_url)
+                st.code(st.write(absolute_url))
+                #st.write(absolute_url)
                 #st.code(absolute_url, language="python", line_numbers=False)
 
 with col2:
     option = st.selectbox(
         "What would you like to do?",
-        ("Extract", "Generate UNIX Script for Download"),
+        ("Extract", "wget"),
     )
 
 
