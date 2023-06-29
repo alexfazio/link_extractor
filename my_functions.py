@@ -56,7 +56,12 @@ def rm(url, extension):
         href = link["href"]
         if href.endswith(extension):
             absolute_url: str = urljoin(url, href)
-            code += ("rm" + " " + absolute_url + "\n")
+            # Extract filename from path
+            filename = os.path.basename(absolute_url.path)
+            # Create UNIX command
+            unix_command = f'rm {filename}'
+            return unix_command
+            code += ("rm" + " " + unix_command + "\n")
     st.code(code, language='python')
     # st.write(absolute_url)
     # st.code(absolute_url, language="python", line_numbers=False)
