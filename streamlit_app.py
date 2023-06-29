@@ -37,6 +37,10 @@ with col1:
 
     url = st.text_input('URL:', 'https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models')
     extension = st.text_input('Filter by file extension, e.g. .pdf', '.pth')
+    option = st.selectbox(
+        "Extras",
+        ("", "wget"),
+    )
 
     submit = st.button('Process')
 
@@ -61,8 +65,3 @@ with col1:
         st.code(code, language='python')
                 #st.write(absolute_url)
                 #st.code(absolute_url, language="python", line_numbers=False)
-
-        option = st.selectbox(
-            "Extras",
-            ("", "wget"),
-        )
