@@ -13,11 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from urllib.parse import urljoin
 
 import requests
 import streamlit as st
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+from my_functions import simple_link_extractor
 
 # SETTING PAGE CONFIG TO WIDE MODE AND ADDING A TITLE AND FAVICON
 st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":link:")
@@ -39,7 +40,7 @@ with col1:
     extension = st.text_input('Filter by file extension, e.g. .pdf', '.pth')
     extras = st.selectbox(
         "Extras",
-        ("", "wget"),
+        ("", "wget", "rm"),
     )
 
     submit = st.button('Process')
@@ -51,22 +52,5 @@ with col1:
         st.write('Extras:', extras)
         st.write('---')
 
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, "html.parser")
-
-
-        links = soup.find_all("a", href=True)
-
-        code = ""
-
-        for link in links:
-            href = link["href"]
-            if href.endswith(extension):
-                absolute_url: str = urljoin(url, href)
-                if extras == "wget":
-                    code += ("wget" + " " + absolute_url + "\n")
-                else:
-                    code += (absolute_url + "\n")
-        st.code(code, language='python')
-                #st.write(absolute_url)
-                #st.code(absolute_url, language="python", line_numbers=False)
+        if extras == "":
+            simple_link_extractor(url, extension, extras)
