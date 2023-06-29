@@ -55,8 +55,8 @@ with col1:
             href = link["href"]
             if href.endswith(extension):
                 absolute_url: str = urljoin(url, href)
-                code = absolute_url
-                st.code(code, language='python')
+                code += absolute_url
+        st.code(code, language='python')
                 #st.write(absolute_url)
                 #st.code(absolute_url, language="python", line_numbers=False)
 
