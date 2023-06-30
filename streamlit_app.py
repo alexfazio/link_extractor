@@ -43,7 +43,7 @@ with col1:
     )
 
     submit = st.button('Process')
-    history = {}
+    history = []
 
     if submit:
 
