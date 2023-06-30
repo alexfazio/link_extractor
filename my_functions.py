@@ -6,7 +6,6 @@ import streamlit as st
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
-
 def simple_link_extractor(url, extension):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -67,11 +66,6 @@ def rm(url, extension):
     # st.write(absolute_url)
     # st.code(absolute_url, language="python", line_numbers=False)
 
-import os
-from urllib.parse import urljoin
-import requests
-from bs4 import BeautifulSoup
-
 def civitai (url, extension):
     """Returns URL as wget UNIX commands, by appending a wget command before each URL."""
     response = requests.get(url)
@@ -93,7 +87,21 @@ def civitai (url, extension):
             # Construct the wget command
             unix_command = "wget " + new_url + " --content-disposition"
             code += unix_command + '\n'
-        elif href.endswith(extension):
+        elif href.endswith("type=Model&format=SafeTensor"):
+            absolute_url = urljoin(url, href)
+            # Extract filename from path
+            filename = os.path.basename(absolute_url)
+            # Create UNIX command
+            unix_command = f'wget {filename}'
+            code += unix_command + '\n'
+        elif href.endswith("type=Model&format=PickleTensor&size=full&fp=fp16"):
+            absolute_url = urljoin(url, href)
+            # Extract filename from path
+            filename = os.path.basename(absolute_url)
+            # Create UNIX command
+            unix_command = f'wget {filename}'
+            code += unix_command + '\n'
+        elif href.endswith("type=Config&format=Other"):
             absolute_url = urljoin(url, href)
             # Extract filename from path
             filename = os.path.basename(absolute_url)
