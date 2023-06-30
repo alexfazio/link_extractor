@@ -18,6 +18,7 @@ import streamlit as st
 from my_functions import simple_link_extractor
 from my_functions import wget
 from my_functions import rm
+from my_functions import civitai
 
 # SETTING PAGE CONFIG TO WIDE MODE AND ADDING A TITLE AND FAVICON
 st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":link:")
@@ -26,7 +27,7 @@ st.set_page_config(layout="wide", page_title="TEST 3", page_icon=":link:")
 row1_1, row1_2 = st.columns((2, 3))
 
 with row1_1:
-    st.title("🔗 Link Extractor V0.0.2")
+    st.title("🔗 Link Extractor V0.0.3")
 
 # LAYING OUT THE MIDDLE SECTION OF THE APP
 col1, col2 = st.columns(2)
@@ -39,7 +40,7 @@ with col1:
     extension = st.text_input('Filter by file extension, e.g. .pdf', '.pth')
     extras = st.selectbox(
         "Extras",
-        ("None", "wget", "rm"),
+        ("None", "wget", "rm", "civitai"),
     )
 
     submit = st.button('Process')
@@ -62,6 +63,9 @@ with col1:
 
         if extras == "rm":
             rm(url, extension)
+
+        if extras == "civitai":
+            civitai(url, extension)
 
 with col2:
     st.table(history)
