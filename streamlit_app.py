@@ -14,11 +14,7 @@
 # limitations under the License.
 
 
-import re
-import requests
 import streamlit as st
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
 from my_functions import simple_link_extractor
 from my_functions import wget
 from my_functions import rm
