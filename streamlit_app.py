@@ -43,6 +43,7 @@ with col1:
     )
 
     submit = st.button('Process')
+    history = {}
 
     if submit:
 
@@ -50,6 +51,8 @@ with col1:
         st.write('Extension:', extension)
         st.write('Extras:', extras)
         st.write('---')
+
+        history.append(url)
 
         if extras == "None":
             simple_link_extractor(url, extension)
@@ -59,3 +62,6 @@ with col1:
 
         if extras == "rm":
             rm(url, extension)
+
+with col2:
+    st.table(history)
