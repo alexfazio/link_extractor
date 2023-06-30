@@ -1,5 +1,4 @@
 
-import re
 import os
 import requests
 import streamlit as st
@@ -61,7 +60,6 @@ def rm(url, extension):
             filename = os.path.basename(absolute_url.path)
             # Create UNIX command
             unix_command = f'rm {filename}'
-            code += ("rm" + " " + unix_command + "\n")
     st.code(code, language='python')
     # st.write(absolute_url)
     # st.code(absolute_url, language="python", line_numbers=False)
