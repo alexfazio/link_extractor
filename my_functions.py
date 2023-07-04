@@ -16,7 +16,7 @@ def simple_link_extractor(url, extension):
 
     for link in links:
         href = link["href"]
-        if href.endswith(extension):
+        if href.endswith(extension) and not href.__contains__("/blob/"):
             absolute_url: str = urljoin(url, href)
             code += (absolute_url + "\n")
     st.code(code, language='python')
@@ -54,7 +54,7 @@ def rm(url, extension):
 
     for link in links:
         href = link["href"]
-        if href.endswith(extension):
+        if href.endswith(extension) and not href.__contains__("/blob/"):
             absolute_url = urljoin(url, href)
             # Extract filename from path
             filename = os.path.basename(absolute_url)
@@ -77,7 +77,7 @@ def civitai (url, extension):
 
     for link in links:
         href = link["href"]
-        if href.startswith('https://civitai.com/api/download/models/'):
+        if href.startswith('https://civitai.com/api/download/models/') and not href.__contains__("/blob/"):
             # Split the URL into parts
             url_parts = href.split('/')
             # Extract the model ID from the URL
