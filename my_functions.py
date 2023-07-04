@@ -35,7 +35,7 @@ def wget(url, extension):
 
     for link in links:
         href = link["href"]
-        if href.endswith(extension):
+        if href.endswith(extension) and not href.__contains__("/blob/"):
             absolute_url: str = urljoin(url, href)
             code += ("wget" + " " + absolute_url + "\n")
     st.code(code, language='python')
